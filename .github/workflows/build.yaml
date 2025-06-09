@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: "Zulu"
-          version: "23"
+          java-version: "23"
 
       - name: Build Code
         run: |
