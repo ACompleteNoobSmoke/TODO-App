@@ -1,0 +1,29 @@
+name: Build Workflow
+
+run-name: Build Workflow -- ${{github.head_ref || github.ref_name}}
+
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  BRANCH_NAME: ${{github.head_ref || github.ref_name}}
+
+jobs:
+  build-job:
+    name: Build Job -- ${{env.BRANCH_NAME}}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "Zulu"
+          version: "23"
+
+      - name: Build Code
+        runs: |
+          mvn clean install
+
