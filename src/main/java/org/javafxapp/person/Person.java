@@ -1,4 +1,4 @@
-package org.javafxapp.model;
+package org.javafxapp.person;
 
 public class Person {
 

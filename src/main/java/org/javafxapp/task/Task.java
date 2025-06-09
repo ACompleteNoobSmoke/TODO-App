@@ -1,4 +1,4 @@
-package org.javafxapp.model;
+package org.javafxapp.task;
 
 import java.util.Date;
 
