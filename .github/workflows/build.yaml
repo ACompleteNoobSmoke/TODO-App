@@ -24,6 +24,6 @@ jobs:
           version: "23"
 
       - name: Build Code
-        runs: |
+        run: |
           mvn clean install
 
