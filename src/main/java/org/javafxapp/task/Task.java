@@ -1,5 +1,7 @@
 package org.javafxapp.task;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public class Task {
@@ -8,16 +10,25 @@ public class Task {
     private Integer userID;
     private String taskName;
     private String taskDescription;
-    private Date taskStartDate;
-    private Date taskEndDate;
+    private LocalDate taskStartDate;
+    private LocalDate taskEndDate;
     private Priority taskPriority;
     private Status taskStatus;
 
     public Task() {}
 
-    public Task(Integer taskID, Integer userID, String taskName, String taskDescription, Date taskStartDate, Date taskEndDate, Priority taskPriority, Status taskStatus) {
+    public Task (Integer taskID, Integer userID, String taskName, String taskDescription, LocalDate taskStartDate, LocalDate taskEndDate, Priority taskPriority, Status taskStatus) {
         this.taskID = taskID;
         this.userID = userID;
+        this.taskName = taskName;
+        this.taskDescription = taskDescription;
+        this.taskStartDate = taskStartDate;
+        this.taskEndDate = taskEndDate;
+        this.taskPriority = taskPriority;
+        this.taskStatus = taskStatus;
+    }
+
+    public Task (String taskName, String taskDescription, LocalDate taskStartDate, LocalDate taskEndDate, Priority taskPriority, Status taskStatus) {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.taskStartDate = taskStartDate;
@@ -58,20 +69,24 @@ public class Task {
         this.taskDescription = taskDescription;
     }
 
-    public Date getTaskStartDate() {
+    public LocalDate getTaskStartDate() {
         return taskStartDate;
     }
 
-    public void setTaskStartDate(Date taskStartDate) {
+    public void setTaskStartDate(LocalDate taskStartDate) {
         this.taskStartDate = taskStartDate;
     }
 
-    public Date getTaskEndDate() {
+    public LocalDate getTaskEndDate() {
         return taskEndDate;
     }
 
-    public void setTaskEndDate(Date taskEndDate) {
+    public void setTaskEndDate(LocalDate taskEndDate) {
         this.taskEndDate = taskEndDate;
+    }
+
+    public static long getTaskDateDifference(LocalDate taskStartDate, LocalDate taskEndDate) {
+        return ChronoUnit.DAYS.between(taskStartDate, taskEndDate);
     }
 
     public Priority getTaskPriority() {
